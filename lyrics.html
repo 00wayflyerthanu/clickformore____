@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <title>clickformore_______________________</title>
+
+  <style>
+ body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #background-video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+  </style>
+</head>
+<body>
+  <audio id="background-audio" autoplay loop>
+    <source src="Dom Corleo - Goons (Instrumental).mp3" type="audio/mpeg"> <!-- Replace 'your_audio.mp3' with your audio file -->
+  </audio>
+
+
+
+  <script>
+    let lyrics = [
+    "click for more",
+      "You gotta get high like me",
+      "My whole career, thеy bitin'",
+      "I just be pissin’, I don't give a fuck",
+      "My bitch got body, yeah, my bitch got body, yeah, my bitch got body",
+      "And it's not my world, it's Mali world",
+      "And she's not my girl, she's Mali's girl",
+      "You play with my top, get a referral",
+      "Put him in a smoke, he reefer",
+      "Pockets, they swole, I'm outta control, yeah",
+      "Put 'em in a coffin, put 'em in a coffin",
+      "I stay with like ten thots often",
+      "Double 0, yeah, the biggest ever, we just gettin' ready for the crossover",
+      "Y'all niggas don't know how to grow up, I been a OG since I was younger",
+      "All of my friends are dead, leave 'em in the cold, put 'em in the tundra",
+    "You niggas don't love me, your bitch wanna fuck me",
+    "I'm 'bout to spot me a opp, I'm 'bout to spin their truck, woah",
+    "I said, Momma, I got me a switch, we don't give a fuck 'bout luck",
+    "Ice on my body, I'm the coolest",
+    "Trampoline jump for a cougar",
+    "She wanna fuck for the moolah",
+    "I just been feeling myself,I found Jesus, Christian Dior",
+    "I stay runnin' up checks and holdin' the knife, it's a sport",
+    "It's so hot, I gotta hide my face, this not a rockstar phase",
+    "I'm a emo thug in my phase",
+    "Monkey nuts, hold me, baby, I got on two chains",
+    "Spin on the block, have a pussy nigga stained",
+    "I just put on my boots, ain't worried 'bout no rain",
+    "I put duct tape on my switch, perfect aim",
+    "Fully loaded check, hold up, baby, Jordan paid",
+    "Disrespect the 5, I put your ass in the food chain",
+    "You gotta get high like this",
+      "You gotta get high like me",
+      "My whole career, thеy bitin'",
+      "I just be pissin’, I don't give a fuck",
+      "My bitch got body, yeah, my bitch got body, yeah, my bitch got body",
+      "And it's not my world, it's Mali world",
+      "And she's not my girl, she's Mali's girl",
+      "You play with my top, get a referral",
+      "Put him in a smoke, he reefer",
+      "Pockets, they swole, I'm outta control, yeah",
+      "Put 'em in a coffin, put 'em in a coffin",
+      "I stay with like ten thots often",
+      "Double 0, yeah, the biggest ever, we just gettin' ready for the crossover",
+      "Y'all niggas don't know how to grow up, I been a OG since I was younger",
+      "All of my friends are dead, leave 'em in the cold, put 'em in the tundra",
+    "You niggas don't love me, your bitch wanna fuck me",
+    "I'm 'bout to spot me a opp, I'm 'bout to spin their truck, woah",
+    "I said, Momma, I got me a switch, we don't give a fuck 'bout luck",
+    "Ice on my body, I'm the coolest",
+    "Trampoline jump for a cougar",
+    "She wanna fuck for the moolah",
+    "I just been feeling myself,I found Jesus, Christian Dior",
+    "I stay runnin' up checks and holdin' the knife, it's a sport",
+    "It's so hot, I gotta hide my face, this not a rockstar phase",
+    "I'm a emo thug in my phase",
+    "Monkey nuts, hold me, baby, I got on two chains",
+    "Spin on the block, have a pussy nigga stained",
+    "I just put on my boots, ain't worried 'bout no rain",
+    "I put duct tape on my switch, perfect aim",
+    "Fully loaded check, hold up, baby, Jordan paid",
+    "Disrespect the 5, I put your ass in the food chain",
+    "You gotta get high like this",
+      "You gotta get high like me",
+      "My whole career, thеy bitin'",
+      "I just be pissin’, I don't give a fuck",
+      "My bitch got body, yeah, my bitch got body, yeah, my bitch got body",
+      "And it's not my world, it's Mali world",
+      "And she's not my girl, she's Mali's girl",
+      "You play with my top, get a referral",
+      "Put him in a smoke, he reefer",
+      "Pockets, they swole, I'm outta control, yeah",
+      "Put 'em in a coffin, put 'em in a coffin",
+      "I stay with like ten thots often",
+      "Double 0, yeah, the biggest ever, we just gettin' ready for the crossover",
+      "Y'all niggas don't know how to grow up, I been a OG since I was younger",
+      "All of my friends are dead, leave 'em in the cold, put 'em in the tundra",
+    "You niggas don't love me, your bitch wanna fuck me",
+    "I'm 'bout to spot me a opp, I'm 'bout to spin their truck, woah",
+    "I said, Momma, I got me a switch, we don't give a fuck 'bout luck",
+    "Ice on my body, I'm the coolest",
+    "Trampoline jump for a cougar",
+    "She wanna fuck for the moolah",
+    "I just been feeling myself,I found Jesus, Christian Dior",
+    "I stay runnin' up checks and holdin' the knife, it's a sport",
+    "It's so hot, I gotta hide my face, this not a rockstar phase",
+    "I'm a emo thug in my phase",
+    "Monkey nuts, hold me, baby, I got on two chains",
+    "Spin on the block, have a pussy nigga stained",
+    "I just put on my boots, ain't worried 'bout no rain",
+    "I put duct tape on my switch, perfect aim",
+    "Fully loaded check, hold up, baby, Jordan paid",
+    "Disrespect the 5, I put your ass in the food chain",
+    ];
+
+    let lyricsPositions = [];
+    let lightning = [];
+    let currentLyricIndex = 0;
+    let video;
+
+    function preload() {
+      video = createVideo('lyricvideo_7.mp4'); // Replace 'lyricvideo_1.mp4' with your video file
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      textAlign(CENTER, CENTER);
+      fill(255);
+      video.loop(); // Set the video to loop
+      video.hide(); // Hide the video element
+    }
+
+    function draw() {
+      background(0);
+      
+      // Display video in the background
+      image(video, 0, 0, width, height);
+      
+      for (let i = 0; i < lyricsPositions.length; i++) {
+        let fontSize = random(10, 60); // Random font size between 10 and 60
+        textSize(fontSize);
+        textFont('Comic Sans MS');
+        text(lyrics[currentLyricIndex], lyricsPositions[i].x, lyricsPositions[i].y);
+      }
+      
+      for (let i = 0; i < lightning.length; i++) {
+        let bolt = lightning[i];
+        stroke(255, 255, 0);
+        strokeWeight(1);
+        for (let j = 0; j < bolt.segments.length - 1; j++) {
+          let startX = bolt.segments[j].x;
+          let startY = bolt.segments[j].y;
+          let endX = bolt.segments[j + 1].x;
+          let endY = bolt.segments[j + 1].y;
+          line(startX, startY, endX, endY);
+        }
+        bolt.life--;
+        if (bolt.life <= 0) {
+          lightning.splice(i, 1);
+        }
+      }
+    }
+
+    function mouseClicked() {
+      let clickedX = mouseX;
+      let clickedY = mouseY;
+      lyricsPositions.push({ x: clickedX, y: clickedY });
+      emitLightning(clickedX, clickedY);
+      if (lyricsPositions.length === lyrics.length) {
+        currentLyricIndex = 0; // Reset to the first lyric
+        lyricsPositions = []; // Clear previous lyric positions
+      }
+    }
+
+    function emitLightning(x, y) {
+      let startX = x;
+      let startY = y;
+      let numSegments = 100; // Number of segments in lightning
+      let bolt = {
+        segments: [],
+        life: 20
+      };
+      bolt.segments.push({ x: startX, y: startY });
+      for (let i = 0; i < numSegments; i++) {
+        let endX = startX + random(-5, 5);
+        let endY = startY + random(-5, 5);
+        bolt.segments.push({ x: endX, y: endY });
+        startX = endX;
+        startY = endY;
+      }
+      lightning.push(bolt);
+    }
+  </script>
+</body>
+</html>
